@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘만정장 - 당신의 시작이 완벽하게</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ================================
+           COLOR SYSTEM (조용한 팔레트 - 3색)
+           ================================ */
+        :root {
+            --navy-dark: #0a0a14;
+            --navy-mid: #1a1a2e;
+            --crimson: #DC143C;
+            --off-white: #f5f5f5;
+            --gray-muted: #888;
+            --gray-light: #333;
+            --success: #22c55e;
+        }
+
+        /* ================================
+           RESET & BASE
+           ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--navy-dark);
+            color: var(--off-white);
+            line-height: 1.7;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 24px;
+        }
+
+        .serif {
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .section-label {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray-muted);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: var(--gray-muted);
+            line-height: 1.8;
+        }
+
+        /* ================================
+           SECTION 01: HERO (임팩트 히어로)
+           ================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 24px;
+            background: linear-gradient(180deg, var(--navy-dark) 0%, var(--navy-mid) 100%);
+            position: relative;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-badge {
+            font-size: 12px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 2px;
+            color: var(--off-white);
+            letter-spacing: 0.05em;
+        }
+
+        .hero-badge.accent {
+            border-color: var(--crimson);
+            color: var(--crimson);
+        }
+
+        .hero-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 42px;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title span {
+            color: var(--crimson);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--gray-muted);
+            margin-bottom: 48px;
+            line-height: 1.8;
+        }
+
+        /* 히어로 영상 그리드 */
+        .hero-videos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 48px;
+        }
+
+        .hero-video {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            aspect-ratio: 9/16;
+        }
+
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-tagline {
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            color: var(--gray-muted);
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 32px;
+            margin-top: 32px;
+        }
+
+        /* ================================
+           SECTION 02: PROBLEM (문제 정의 & 공감)
+           ================================ */
+        .problem {
+            background: var(--navy-mid);
+            text-align: center;
+        }
+
+        .problem-story {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 24px;
+            line-height: 1.8;
+            margin-bottom: 48px;
+            color: var(--off-white);
+        }
+
+        .problem-story span {
+            color: var(--crimson);
+            font-weight: 600;
+        }
+
+        .problem-question {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            line-height: 1.4;
+        }
+
+        /* 문제 상황 GIF */
+        .problem-visual {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 48px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .problem-visual img {
+            width: 100%;
+            height: auto;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 32px 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--crimson);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--gray-muted);
+        }
+
+        /* ================================
+           SECTION 03: SOLUTION (솔루션 & 차별점)
+           ================================ */
+        .solution {
+            background: var(--navy-dark);
+            text-align: center;
+        }
+
+        .solution-box {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 48px 32px;
+            margin-top: 32px;
+        }
+
+        .solution-box p {
+            font-size: 18px;
+            line-height: 1.9;
+            color: var(--off-white);
+        }
+
+        /* USP 3가지 */
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .usp-item {
+            text-align: center;
+            padding: 24px 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .usp-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--crimson);
+            margin-bottom: 8px;
+        }
+
+        .usp-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .usp-desc {
+            font-size: 13px;
+            color: var(--gray-muted);
+        }
+
+        /* ================================
+           SECTION 04: BENEFITS (The Suit Today Way)
+           ================================ */
+        .benefits {
+            background: var(--navy-mid);
+        }
+
+        .benefits-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .benefits-title {
+            font-size: 14px;
+            letter-spacing: 0.2em;
+            color: var(--crimson);
+            margin-bottom: 16px;
+        }
+
+        .benefits-subtitle {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .benefit-list {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+        }
+
+        .benefit-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .benefit-item:nth-child(even) {
+            direction: rtl;
+        }
+
+        .benefit-item:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .benefit-visual {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .benefit-visual img {
+            width: 100%;
+            height: auto;
+        }
+
+        .benefit-content {
+            padding: 16px 0;
+        }
+
+        .benefit-number {
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            color: var(--crimson);
+            margin-bottom: 12px;
+        }
+
+        .benefit-content h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .benefit-content p {
+            font-size: 15px;
+            color: var(--gray-muted);
+            line-height: 1.7;
+        }
+
+        /* ================================
+           SECTION 05: COMPARISON (경쟁사 비교 - 가성비형 필수)
+           ================================ */
+        .comparison {
+            background: var(--navy-dark);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 32px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 16px 12px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+
+        .comparison-table th {
+            color: var(--gray-muted);
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        .comparison-table th:first-child,
+        .comparison-table td:first-child {
+            text-align: left;
+        }
+
+        .comparison-table .highlight {
+            background: rgba(220, 20, 60, 0.1);
+        }
+
+        .comparison-table .highlight td {
+            color: var(--off-white);
+            font-weight: 500;
+        }
+
+        .check {
+            color: var(--success);
+        }
+
+        .cross {
+            color: var(--gray-muted);
+        }
+
+        /* ================================
+           SECTION 06: QUALITY (첫인상 3초)
+           ================================ */
+        .quality {
+            background: var(--navy-mid);
+            text-align: center;
+        }
+
+        .quality-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 32px;
+            margin-bottom: 32px;
+        }
+
+        .quality-desc {
+            font-size: 17px;
+            color: var(--gray-muted);
+            line-height: 1.9;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ================================
+           SECTION 07: SCENARIOS (사용 시나리오 - 6단계)
+           ================================ */
+        .scenarios {
+            background: var(--navy-dark);
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .scenario-card {
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        .scenario-image {
+            aspect-ratio: 4/3;
+            background: var(--navy-mid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-muted);
+            font-size: 13px;
+        }
+
+        .scenario-content {
+            padding: 24px 20px;
+        }
+
+        .scenario-tag {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            color: var(--crimson);
+            margin-bottom: 8px;
+        }
+
+        .scenario-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .scenario-desc {
+            font-size: 14px;
+            color: var(--gray-muted);
+            line-height: 1.6;
+        }
+
+        /* ================================
+           SECTION 08: FLOW (작동 원리 - 4단계)
+           ================================ */
+        .flow {
+            background: var(--navy-mid);
+        }
+
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .flow-step {
+            text-align: center;
+            padding: 24px 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--crimson);
+            font-size: 18px;
+        }
+
+        .flow-step:last-child::after {
+            display: none;
+        }
+
+        .flow-step-num {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--crimson);
+            margin-bottom: 12px;
+        }
+
+        .flow-step-title {
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            color: var(--gray-muted);
+            margin-bottom: 8px;
+        }
+
+        .flow-step-desc {
+            font-size: 13px;
+            color: var(--off-white);
+        }
+
+        /* ================================
+           SECTION 09: REVIEWS (사용자 후기 - 7단계)
+           ================================ */
+        .reviews {
+            background: var(--navy-dark);
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .review-card {
+            padding: 32px 24px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .review-stars {
+            color: var(--crimson);
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .review-text {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: var(--off-white);
+        }
+
+        .review-author {
+            font-size: 13px;
+            color: var(--gray-muted);
+        }
+
+        .review-author span {
+            color: var(--off-white);
+        }
+
+        /* 사회적 증거 통계 */
+        .social-proof {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .proof-item {
+            text-align: center;
+        }
+
+        .proof-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--off-white);
+            margin-bottom: 8px;
+        }
+
+        .proof-label {
+            font-size: 13px;
+            color: var(--gray-muted);
+        }
+
+        /* ================================
+           SECTION 10: REWARDS (리워드 - 8단계)
+           ================================ */
+        .rewards {
+            background: var(--navy-mid);
+        }
+
+        .rewards-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .rewards-label {
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--gray-muted);
+            margin-bottom: 8px;
+        }
+
+        .rewards-title {
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .lineup-compare {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .lineup-box {
+            padding: 24px;
+            border: 1px solid rgba(255,255,255,0.15);
+            text-align: center;
+        }
+
+        .lineup-box.premium {
+            border-color: var(--crimson);
+        }
+
+        .lineup-name {
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            margin-bottom: 12px;
+            color: var(--gray-muted);
+        }
+
+        .lineup-price {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .lineup-price small {
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--gray-muted);
+        }
+
+        .lineup-desc {
+            font-size: 12px;
+            color: var(--gray-muted);
+            margin-top: 8px;
+        }
+
+        .reward-section-title {
+            font-size: 12px;
+            letter-spacing: 0.15em;
+            color: var(--gray-muted);
+            margin: 32px 0 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .reward-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .reward-card {
+            background: var(--navy-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 24px 20px;
+            position: relative;
+            transition: border-color 0.3s;
+        }
+
+        .reward-card:hover {
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .reward-card.featured {
+            border-color: var(--crimson);
+        }
+
+        .reward-badge {
+            position: absolute;
+            top: -1px;
+            right: 16px;
+            background: var(--crimson);
+            color: white;
+            font-size: 10px;
+            padding: 4px 10px;
+            letter-spacing: 0.05em;
+        }
+
+        .reward-name {
+            font-size: 13px;
+            color: var(--gray-muted);
+            margin-bottom: 4px;
+        }
+
+        .reward-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .reward-original {
+            font-size: 13px;
+            color: var(--gray-muted);
+            text-decoration: line-through;
+            margin-bottom: 4px;
+        }
+
+        .reward-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--off-white);
+            margin-bottom: 4px;
+        }
+
+        .reward-label {
+            font-size: 11px;
+            color: var(--crimson);
+            letter-spacing: 0.05em;
+        }
+
+        .reward-limited {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 12px;
+            color: var(--gray-muted);
+        }
+
+        /* ================================
+           SECTION 11: ESG
+           ================================ */
+        .esg {
+            background: var(--navy-dark);
+            text-align: center;
+        }
+
+        .esg-title {
+            font-size: 14px;
+            letter-spacing: 0.15em;
+            color: var(--crimson);
+            margin-bottom: 24px;
+        }
+
+        .esg-message {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 24px;
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .esg-desc {
+            font-size: 15px;
+            color: var(--gray-muted);
+            line-height: 1.8;
+        }
+
+        /* ================================
+           SECTION 12: TEAM (제작진 소개 - 9단계)
+           ================================ */
+        .team {
+            background: var(--navy-mid);
+        }
+
+        .team-story {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .team-story-text {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 22px;
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .team-story-text span {
+            color: var(--crimson);
+            font-weight: 600;
+        }
+
+        .team-philosophy {
+            font-size: 18px;
+            color: var(--gray-muted);
+            font-style: italic;
+        }
+
+        .team-info {
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 32px;
+            text-align: center;
+        }
+
+        .team-name {
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            color: var(--gray-muted);
+        }
+
+        .team-desc {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--off-white);
+        }
+
+        /* ================================
+           SECTION 13: FUNDING USE (자금 사용 계획 - 사회적 가치형 필수)
+           ================================ */
+        .funding-use {
+            background: var(--navy-dark);
+        }
+
+        .funding-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+
+        .funding-item {
+            text-align: center;
+            padding: 24px 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .funding-percent {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--crimson);
+            margin-bottom: 8px;
+        }
+
+        .funding-label {
+            font-size: 13px;
+            color: var(--off-white);
+            margin-bottom: 4px;
+        }
+
+        .funding-desc {
+            font-size: 12px;
+            color: var(--gray-muted);
+        }
+
+        /* ================================
+           SECTION 14: TIMELINE
+           ================================ */
+        .timeline {
+            background: var(--navy-mid);
+        }
+
+        .timeline-list {
+            margin-top: 32px;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 24px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .timeline-date {
+            font-size: 13px;
+            color: var(--crimson);
+            font-weight: 500;
+        }
+
+        .timeline-content {
+            font-size: 15px;
+            color: var(--off-white);
+        }
+
+        /* ================================
+           SECTION 15: RISK
+           ================================ */
+        .risk {
+            background: var(--navy-dark);
+        }
+
+        .risk-list {
+            margin-top: 32px;
+        }
+
+        .risk-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .risk-q {
+            font-size: 14px;
+            color: var(--gray-muted);
+        }
+
+        .risk-a {
+            font-size: 14px;
+            color: var(--off-white);
+        }
+
+        /* ================================
+           SECTION 16: FAQ
+           ================================ */
+        .faq {
+            background: var(--navy-mid);
+        }
+
+        .faq-list {
+            margin-top: 32px;
+        }
+
+        .faq-item {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .faq-q {
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--off-white);
+        }
+
+        .faq-a {
+            font-size: 14px;
+            color: var(--gray-muted);
+            line-height: 1.7;
+        }
+
+        /* ================================
+           SECTION 17: CTA
+           ================================ */
+        .cta {
+            background: linear-gradient(180deg, var(--navy-mid) 0%, var(--navy-dark) 100%);
+            text-align: center;
+            padding: 100px 24px;
+        }
+
+        .cta-title {
+            font-family: 'Noto Serif KR', serif;
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .cta-subtitle {
+            font-size: 16px;
+            color: var(--gray-muted);
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--crimson);
+            color: white;
+            padding: 18px 48px;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            transition: opacity 0.3s;
+        }
+
+        .cta-button:hover {
+            opacity: 0.9;
+        }
+
+        .cta-info {
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--gray-muted);
+        }
+
+        /* ================================
+           RESPONSIVE
+           ================================ */
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 20px;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-videos {
+                grid-template-columns: 1fr;
+                max-width: 280px;
+            }
+
+            .hero-video {
+                aspect-ratio: 9/14;
+            }
+
+            .problem-story {
+                font-size: 20px;
+            }
+
+            .problem-question {
+                font-size: 24px;
+            }
+
+            .stats-row,
+            .usp-grid,
+            .social-proof,
+            .funding-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .benefit-item {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .benefit-item:nth-child(even) {
+                direction: ltr;
+            }
+
+            .comparison-table {
+                font-size: 12px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 8px;
+            }
+
+            .scenario-grid,
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .flow-step::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -14px;
+                transform: translateX(50%);
+            }
+
+            .lineup-compare,
+            .reward-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item,
+            .risk-item {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .cta-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================================
+         SECTION 01: HERO (임팩트 히어로)
+         ================================ -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badges">
+                <span class="hero-badge">목표 2,000만원</span>
+                <span class="hero-badge">7일 한정</span>
+                <span class="hero-badge accent">선착순 마감</span>
+            </div>
+            
+            <h1 class="hero-title">
+                당신의 시작이<br>
+                <span>완벽하게.</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                중요한 순간, 사지 말고 '오늘만 정장'하세요.<br>
+                캠퍼스 기반 프리미엄 정장 렌탈 서비스.
+            </p>
+
+            <!-- 히어로 영상 -->
+            <div class="hero-videos">
+                <div class="hero-video">
+                    <video autoplay muted loop playsinline>
+                        <source src="Male.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="hero-video">
+                    <video autoplay muted loop playsinline>
+                        <source src="Female.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            
+            <p class="hero-tagline">
+                SUIT TODAY FOR YOU, SUIT TODAY FOR EARTH.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 02: PROBLEM (문제 정의 & 공감)
+         ================================ -->
+    <section class="problem">
+        <div class="container">
+            <p class="section-label">THE BEGINNING</p>
+            
+            <p class="problem-story">
+                통장 잔고 <span>47,000원.</span><br>
+                면접을 앞둔 팀원의 통장이었습니다.
+            </p>
+
+            <!-- 문제 상황 GIF: 돈 세는 장면 = 비용 부담 -->
+            <div class="problem-visual">
+                <img src="03-02-gif3.gif" alt="정장 구매 비용 부담">
+            </div>
+            
+            <p class="problem-question">
+                딱 한 번 입을 정장,<br>
+                30만원이 정말 합리적인가요?
+            </p>
+            
+            <p class="section-subtitle">
+                면접, 결혼식, 졸업사진...<br>
+                중요한 날은 다가오는데 통장 잔고는 부족하죠.<br>
+                비싼 가격, 귀찮은 세탁, 유행 타는 디자인까지.
+            </p>
+            
+            <div class="stats-row">
+                <div class="stat-item">
+                    <p class="stat-number">300,000+</p>
+                    <p class="stat-label">정장 구매 비용</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">10,000</p>
+                    <p class="stat-label">드라이클리닝 1회</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-number">99%</p>
+                    <p class="stat-label">옷장 방치율</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 03: SOLUTION (솔루션 & 차별점)
+         ================================ -->
+    <section class="solution">
+        <div class="container">
+            <p class="section-label">OUR ANSWER</p>
+            <h2 class="section-title">
+                왜 시작하는 사람이<br>
+                가장 큰 비용을 져야 할까요?
+            </h2>
+            
+            <div class="solution-box">
+                <p>
+                    도서관에서 책을 빌리듯,<br>
+                    캠퍼스에서 정장을 빌리세요.<br><br>
+                    사회로 나가는 첫걸음이<br>
+                    빚이나 짐이 되어서는 안 됩니다.
+                </p>
+            </div>
+
+            <!-- USP 3가지 -->
+            <div class="usp-grid">
+                <div class="usp-item">
+                    <p class="usp-number">90%</p>
+                    <p class="usp-title">비용 절감</p>
+                    <p class="usp-desc">30만원 구매 대신<br>3만원대 렌탈</p>
+                </div>
+                <div class="usp-item">
+                    <p class="usp-number">0원</p>
+                    <p class="usp-title">세탁 비용</p>
+                    <p class="usp-desc">입은 그대로 반납<br>세탁은 저희가</p>
+                </div>
+                <div class="usp-item">
+                    <p class="usp-number">5분</p>
+                    <p class="usp-title">캠퍼스 픽업</p>
+                    <p class="usp-desc">공강에 수령<br>등교길에 반납</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 04: BENEFITS (The Suit Today Way)
+         ================================ -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-header">
+                <p class="benefits-title">THE SUIT TODAY WAY</p>
+                <h2 class="benefits-subtitle">캠퍼스에서 바로 픽업하세요.</h2>
+            </div>
+            
+            <div class="benefit-list">
+                <div class="benefit-item">
+                    <div class="benefit-visual">
+                        <img src="02-02-gifv2.gif" alt="캠퍼스 픽업">
+                    </div>
+                    <div class="benefit-content">
+                        <p class="benefit-number">01. CAMPUS PICKUP</p>
+                        <h3>학교에서 바로 수령</h3>
+                        <p>정문 픽업 스테이션에서 공강 시간에 바로 수령하세요. 배송 기다릴 필요 없이, 등교길에 픽업하고 하교길에 반납하면 끝.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-visual">
+                        <img src="04-02-gif4.gif" alt="AI 사이즈 추천 앱">
+                    </div>
+                    <div class="benefit-content">
+                        <p class="benefit-number">02. AI SIZE FIT</p>
+                        <h3>사진 한 장으로 완벽한 핏</h3>
+                        <p>AI가 체형을 분석해 딱 맞는 사이즈를 추천합니다. 혹시 안 맞아도 걱정 마세요. 1회 무료 교환 보장.</p>
+                    </div>
+                </div>
+                
+                <div class="benefit-item">
+                    <div class="benefit-visual">
+                        <img src="01-02-gifv1.gif" alt="캠퍼스에서 간편하게 반납">
+                    </div>
+                    <div class="benefit-content">
+                        <p class="benefit-number">03. NO LAUNDRY</p>
+                        <h3>입은 그대로 반납</h3>
+                        <p>세탁? 다림질? 저희가 다 합니다. 면접 끝나고 바로 반납하세요. 전문 세탁으로 항상 최상의 컨디션 유지.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 05: COMPARISON (경쟁사 비교 - 가성비형 필수)
+         ================================ -->
+    <section class="comparison">
+        <div class="container">
+            <p class="section-label">WHY US</p>
+            <h2 class="section-title">왜 오늘만정장인가요?</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>신품 구매</th>
+                        <th>열린옷장</th>
+                        <th>마이스윗인터뷰</th>
+                        <th>오늘만정장</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>가격</td>
+                        <td>30만원+</td>
+                        <td>무료</td>
+                        <td>4.5만원~</td>
+                        <td>3.3만원~</td>
+                    </tr>
+                    <tr>
+                        <td>캠퍼스 픽업</td>
+                        <td class="cross">✕</td>
+                        <td class="cross">✕</td>
+                        <td class="cross">✕</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>AI 사이즈 추천</td>
+                        <td class="cross">✕</td>
+                        <td class="cross">✕</td>
+                        <td class="cross">✕</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>세탁 필요</td>
+                        <td>필요</td>
+                        <td>필요</td>
+                        <td>불필요</td>
+                        <td>불필요</td>
+                    </tr>
+                    <tr>
+                        <td>대기 시간</td>
+                        <td>없음</td>
+                        <td>2주+</td>
+                        <td>방문 필수</td>
+                        <td>3일 내</td>
+                    </tr>
+                    <tr>
+                        <td>프리미엄 라인</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✕</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>총평</td>
+                        <td>비용 부담</td>
+                        <td>접근성 낮음</td>
+                        <td>방문 필요</td>
+                        <td>최적의 밸런스</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 06: QUALITY (첫인상 3초)
+         ================================ -->
+    <section class="quality">
+        <div class="container">
+            <p class="section-label">PREMIUM QUALITY</p>
+            
+            <h2 class="quality-title serif">
+                첫인상을 결정하는 3초,<br>
+                디테일이 다릅니다.
+            </h2>
+            
+            <p class="quality-desc">
+                이태리 고급 원단의 품격과<br>
+                한국인 체형에 맞춘 완벽한 핏.<br><br>
+                오늘만 정장은 단순한 옷이 아닙니다.<br>
+                당신의 자신감입니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 07: SCENARIOS (사용 시나리오 - 6단계)
+         ================================ -->
+    <section class="scenarios">
+        <div class="container">
+            <p class="section-label">USE CASES</p>
+            <h2 class="section-title">이럴 때 사용하세요</h2>
+            
+            <div class="scenario-grid">
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        [면접 이미지]
+                    </div>
+                    <div class="scenario-content">
+                        <p class="scenario-tag">INTERVIEW</p>
+                        <h3 class="scenario-title">취업 면접</h3>
+                        <p class="scenario-desc">첫인상이 당락을 좌우하는 면접. 30만원 정장 구매 대신, 프리미엄 정장으로 자신감을 입으세요.</p>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        [졸업사진 이미지]
+                    </div>
+                    <div class="scenario-content">
+                        <p class="scenario-tag">GRADUATION</p>
+                        <h3 class="scenario-title">졸업사진</h3>
+                        <p class="scenario-desc">평생 남을 졸업사진. 핏 좋은 정장으로 인생샷 남기고, 다음 날 바로 반납하세요.</p>
+                    </div>
+                </div>
+                
+                <div class="scenario-card">
+                    <div class="scenario-image">
+                        [결혼식 이미지]
+                    </div>
+                    <div class="scenario-content">
+                        <p class="scenario-tag">WEDDING</p>
+                        <h3 class="scenario-title">결혼식 하객</h3>
+                        <p class="scenario-desc">선후배, 친구 결혼식에 격식 갖춰 참석하세요. 이태리 원단 프리미엄 라인으로 품격 있게.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 08: FLOW (작동 원리 - 4단계)
+         ================================ -->
+    <section class="flow">
+        <div class="container">
+            <p class="section-label">HOW IT WORKS</p>
+            <h2 class="section-title">5단계로 완성되는 경험</h2>
+            
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <p class="flow-step-num">01</p>
+                    <p class="flow-step-title">SIZE MATCH</p>
+                    <p class="flow-step-desc">AI 사이즈<br>추천</p>
+                </div>
+                
+                <div class="flow-step">
+                    <p class="flow-step-num">02</p>
+                    <p class="flow-step-title">SELECT</p>
+                    <p class="flow-step-desc">라인업<br>선택</p>
+                </div>
+                
+                <div class="flow-step">
+                    <p class="flow-step-num">03</p>
+                    <p class="flow-step-title">PICKUP</p>
+                    <p class="flow-step-desc">캠퍼스<br>수령</p>
+                </div>
+                
+                <div class="flow-step">
+                    <p class="flow-step-num">04</p>
+                    <p class="flow-step-title">WEAR</p>
+                    <p class="flow-step-desc">자신감 있게<br>착용</p>
+                </div>
+                
+                <div class="flow-step">
+                    <p class="flow-step-num">05</p>
+                    <p class="flow-step-title">RETURN</p>
+                    <p class="flow-step-desc">그대로<br>반납</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 09: REVIEWS (사용자 후기 - 7단계)
+         ================================ -->
+    <section class="reviews">
+        <div class="container">
+            <p class="section-label">REVIEWS</p>
+            <h2 class="section-title">실제 사용자 후기</h2>
+            
+            <div class="review-grid">
+                <div class="review-card">
+                    <p class="review-stars">★★★★★</p>
+                    <p class="review-text">"면접 전날에 갑자기 정장이 너무 구겨져 있어서 급하게 대여했는데 배송도 빠르고, 사이즈도 딱 맞아서 깜짝 놀랐어요. 코디 추천까지 받을 수 있어서 스트레스 덜 받고 면접관 앞에서 당당하게 앉을 수 있었어요!"</p>
+                    <p class="review-author"><span>면접 준비생</span> · 중요한 면접 전날 이용</p>
+                </div>
+                
+                <div class="review-card">
+                    <p class="review-stars">★★★★★</p>
+                    <p class="review-text">"정장 하나 사기에는 비싸고, 세탁비도 부담됐는데, 대여 + 드라이 비용 포함이라는 점이 찐으로 좋았어요. 면접 끝나고 그냥 문 앞에 두면 픽업해가는 시스템이라 시간도 아끼고 스트레스도 안 받았어요."</p>
+                    <p class="review-author"><span>대학생 취준러</span> · 세탁 걱정 없이 이용</p>
+                </div>
+                
+                <div class="review-card">
+                    <p class="review-stars">★★★★★</p>
+                    <p class="review-text">"보통 정장은 어깨가 남거나 바지가 길어서 항상 수선해야 했는데, 여긴 설문 기반으로 추천해준 사이즈가 진짜 기가 막히게 맞았어요. 허리랑 어깨 라인도 너무 예뻐서 친구들도 어디서 구매한 거냐고 계속 물어보더라구요!"</p>
+                    <p class="review-author"><span>사이즈 고민러</span> · AI 사이즈 추천 이용</p>
+                </div>
+                
+                <div class="review-card">
+                    <p class="review-stars">★★★★★</p>
+                    <p class="review-text">"여기 정장 입고 면접 봤는데.. 진짜 합격했습니다! 핏도 깔끔하고 색감도 고급져서 면접 시작하는 순간부터 자신감이 생기더라구요. 준비를 완벽하게 했다는 느낌이 저를 더 편하게 만들어준 건 분명해요."</p>
+                    <p class="review-author"><span>합격자</span> · 면접 합격 후기 🎉</p>
+                </div>
+            </div>
+
+            <!-- 사회적 증거 -->
+            <div class="social-proof">
+                <div class="proof-item">
+                    <p class="proof-number">55,000+</p>
+                    <p class="proof-label">취업날개 누적 이용자</p>
+                </div>
+                <div class="proof-item">
+                    <p class="proof-number">23만건</p>
+                    <p class="proof-label">열린옷장 누적 대여</p>
+                </div>
+                <div class="proof-item">
+                    <p class="proof-number">12배</p>
+                    <p class="proof-label">7년간 시장 성장률</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 10: REWARDS (리워드 - 8단계)
+         대비효과 + 99,000원 심리 + 앵커링 + 희소성 + Founder's Price
+         ================================ -->
+    <section class="rewards">
+        <div class="container">
+            <div class="rewards-header">
+                <p class="rewards-label">FOUNDER'S COLLECTION</p>
+                <h2 class="rewards-title">리워드 선택</h2>
+            </div>
+            
+            <!-- 라인업 비교 -->
+            <div class="lineup-compare">
+                <div class="lineup-box">
+                    <p class="lineup-name">STANDARD LINE</p>
+                    <p class="lineup-price">45,000원 <small>/ 회</small></p>
+                    <p class="lineup-desc">비즈니스 베이직</p>
+                </div>
+                <div class="lineup-box premium">
+                    <p class="lineup-name">PREMIUM LINE</p>
+                    <p class="lineup-price">75,000원 <small>/ 회</small></p>
+                    <p class="lineup-desc">이태리 원단 + 스타일링</p>
+                </div>
+            </div>
+            
+            <!-- 프리미엄 먼저 (대비 효과) -->
+            <p class="reward-section-title">PREMIUM LINE</p>
+            <div class="reward-grid">
+                <div class="reward-card">
+                    <p class="reward-name">R2</p>
+                    <p class="reward-title">3회권 프리미엄</p>
+                    <p class="reward-original">정가 225,000원</p>
+                    <p class="reward-price">179,000원</p>
+                    <p class="reward-label">Founder's Price</p>
+                    <p class="reward-limited">30명 한정</p>
+                </div>
+                
+                <div class="reward-card featured">
+                    <span class="reward-badge">BEST</span>
+                    <p class="reward-name">R4</p>
+                    <p class="reward-title">5회권 + 스타일링</p>
+                    <p class="reward-original">정가 375,000원</p>
+                    <p class="reward-price">229,000원</p>
+                    <p class="reward-label">Founder's Price</p>
+                    <p class="reward-limited">30명 한정</p>
+                </div>
+                
+                <div class="reward-card">
+                    <span class="reward-badge">MAX</span>
+                    <p class="reward-name">R6</p>
+                    <p class="reward-title">10회권 풀패키지</p>
+                    <p class="reward-original">정가 750,000원</p>
+                    <p class="reward-price">329,000원</p>
+                    <p class="reward-label">Founder's Price</p>
+                    <p class="reward-limited">20명 한정</p>
+                </div>
+            </div>
+            
+            <!-- 스탠다드 (대비 효과로 저렴해 보임) -->
+            <p class="reward-section-title">STANDARD LINE</p>
+            <div class="reward-grid">
+                <div class="reward-card">
+                    <p class="reward-name">R1</p>
+                    <p class="reward-title">3회권 스탠다드</p>
+                    <p class="reward-original">정가 135,000원</p>
+                    <p class="reward-price">99,000원</p>
+                    <p class="reward-label">Founder's Price</p>
+                    <p class="reward-limited">50명 한정</p>
+                </div>
+                
+                <div class="reward-card">
+                    <p class="reward-name">R3</p>
+                    <p class="reward-title">5회권 스탠다드</p>
+                    <p class="reward-original">정가 225,000원</p>
+                    <p class="reward-price">169,000원</p>
+                    <p class="reward-label">Founder's Price</p>
+                    <p class="reward-limited">50명 한정</p>
+                </div>
+                
+                <div class="reward-card">
+                    <p class="reward-name">R5</p>
+                    <p class="reward-title">10회권 스탠다드</p>
+                    <p class="reward-original">정가 450,000원</p>
+                    <p class="reward-price">279,000원</p>
+                    <p class="reward-label">Founder's Price</p>
+                    <p class="reward-limited">30명 한정</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 11: ESG
+         ================================ -->
+    <section class="esg">
+        <div class="container">
+            <p class="esg-title">SUSTAINABILITY</p>
+            
+            <p class="esg-message serif">
+                한 벌의 정장을 공유하면<br>
+                소나무 10그루를 심는 효과.
+            </p>
+            
+            <p class="esg-desc">
+                당신의 합리적인 소비가<br>
+                지구를 위한 가장 멋진 선택이 됩니다.<br>
+                오늘만 정장과 함께 지속 가능한 내일을 입으세요.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 12: TEAM (제작진 소개 - 9단계)
+         ================================ -->
+    <section class="team">
+        <div class="container">
+            <p class="section-label">OUR STORY</p>
+            
+            <div class="team-story">
+                <p class="team-story-text">
+                    통장 잔고 <span>47,000원.</span><br>
+                    면접 앞둔 팀원의 통장이었습니다.<br><br>
+                    우리는 그날 결심했습니다.
+                </p>
+                
+                <p class="team-philosophy">
+                    "사회로 나가는 첫걸음이<br>
+                    빚이나 짐이 되어서는 안 된다."
+                </p>
+            </div>
+            
+            <div class="team-info">
+                <p class="team-name">TEAM SUIT TODAY</p>
+                <p class="team-desc">
+                    전원 취업 준비 경험자.<br>
+                    그래서 압니다. 그 막막함을.<br>
+                    그래서 만들었습니다. 이 서비스를.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 13: FUNDING USE (자금 사용 계획)
+         ================================ -->
+    <section class="funding-use">
+        <div class="container">
+            <p class="section-label">FUND USAGE</p>
+            <h2 class="section-title">펀딩금은 이렇게 사용됩니다</h2>
+            
+            <div class="funding-grid">
+                <div class="funding-item">
+                    <p class="funding-percent">40%</p>
+                    <p class="funding-label">정장 구매</p>
+                    <p class="funding-desc">프리미엄 라인업 확충</p>
+                </div>
+                <div class="funding-item">
+                    <p class="funding-percent">25%</p>
+                    <p class="funding-label">시스템 구축</p>
+                    <p class="funding-desc">AI 사이즈 추천 고도화</p>
+                </div>
+                <div class="funding-item">
+                    <p class="funding-percent">20%</p>
+                    <p class="funding-label">운영비</p>
+                    <p class="funding-desc">세탁/관리/물류</p>
+                </div>
+                <div class="funding-item">
+                    <p class="funding-percent">15%</p>
+                    <p class="funding-label">마케팅</p>
+                    <p class="funding-desc">캠퍼스 확장</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 14: TIMELINE
+         ================================ -->
+    <section class="timeline">
+        <div class="container">
+            <p class="section-label">TIMELINE</p>
+            <h2 class="section-title">일정 안내</h2>
+            
+            <div class="timeline-list">
+                <div class="timeline-item">
+                    <p class="timeline-date">2024.12</p>
+                    <p class="timeline-content">크라우드펀딩 진행</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-date">2025.01</p>
+                    <p class="timeline-content">정장 추가 구매 및 시스템 구축</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-date">2025.02</p>
+                    <p class="timeline-content">베타 서비스 오픈 (서울권 캠퍼스)</p>
+                </div>
+                <div class="timeline-item">
+                    <p class="timeline-date">2025.03</p>
+                    <p class="timeline-content">정식 서비스 런칭</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 15: RISK
+         ================================ -->
+    <section class="risk">
+        <div class="container">
+            <p class="section-label">RISK MANAGEMENT</p>
+            <h2 class="section-title">걱정되시나요?</h2>
+            
+            <div class="risk-list">
+                <div class="risk-item">
+                    <p class="risk-q">사이즈가 안 맞으면?</p>
+                    <p class="risk-a">1회 무료 교환 서비스 제공</p>
+                </div>
+                <div class="risk-item">
+                    <p class="risk-q">재고가 없으면?</p>
+                    <p class="risk-a">3일 전 예약 시 100% 확보 보장</p>
+                </div>
+                <div class="risk-item">
+                    <p class="risk-q">배송이 늦으면?</p>
+                    <p class="risk-a">긴급 배송 + 지연 시 1회 무료</p>
+                </div>
+                <div class="risk-item">
+                    <p class="risk-q">옷이 손상되면?</p>
+                    <p class="risk-a">일반 손상 무료 / 고의만 실비</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 16: FAQ
+         ================================ -->
+    <section class="faq">
+        <div class="container">
+            <p class="section-label">FAQ</p>
+            <h2 class="section-title">자주 묻는 질문</h2>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <p class="faq-q">대여 기간은 얼마인가요?</p>
+                    <p class="faq-a">기본 3박 4일입니다. 연장이 필요하시면 1일 10,000원에 추가 가능합니다.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-q">어떤 사이즈까지 있나요?</p>
+                    <p class="faq-a">남성 85~115, 여성 44~77까지 폭넓게 구비하고 있습니다.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-q">세탁은 어떻게 하나요?</p>
+                    <p class="faq-a">입은 그대로 반납해주세요. 전문 세탁은 저희가 책임집니다.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-q">수령은 어디서 하나요?</p>
+                    <p class="faq-a">캠퍼스 픽업존 또는 택배 배송 중 선택 가능합니다.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-q">펀딩 리워드 사용 기한은?</p>
+                    <p class="faq-a">2025년 12월 31일까지 사용 가능합니다.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <p class="faq-q">환불 규정은 어떻게 되나요?</p>
+                    <p class="faq-a">서비스 시작 전 100% 환불, 이후 잔여 회차에 대해 환불됩니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 17: CTA
+         ================================ -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="cta-title serif">
+                당신의 새로운 시작,<br>
+                오늘만 정장.
+            </h2>
+            
+            <p class="cta-subtitle">
+                7일간, 선착순 한정 Founder's Price.
+            </p>
+            
+            <a href="#" class="cta-button">지금 시작하기</a>
+            
+            <p class="cta-info">
+                목표 2,000만원 · 7일 한정 · 선착순 마감
+            </p>
+        </div>
+    </section>
+
+</body>
+</html>
