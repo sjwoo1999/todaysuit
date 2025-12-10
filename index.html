@@ -1002,15 +1002,202 @@
         /* ================================
            RESPONSIVE
            ================================ */
-        @media (max-width: 768px) {
-            section {
-                padding: 60px 20px;
+
+        /* 태블릿 (1024px 이하) */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 38px;
             }
 
+            .reward-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-row {
+                gap: 16px;
+            }
+        }
+
+        /* 모바일 (768px 이하) */
+        @media (max-width: 768px) {
+            /* 기본 레이아웃 */
+            section {
+                padding: 60px 24px;
+            }
+
+            /* ===== 타이포그래피 개선 ===== */
+            /* 히어로 섹션 */
             .hero-title {
+                font-size: 34px;
+                line-height: 1.35;
+            }
+
+            .hero-subtitle {
+                font-size: 17px;
+                line-height: 1.7;
+            }
+
+            .hero-badge {
+                font-size: 13px;
+                padding: 10px 16px;
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            .hero-tagline {
+                font-size: 15px;
+            }
+
+            /* 문제/솔루션 섹션 */
+            .problem-story {
+                font-size: 21px;
+                line-height: 1.7;
+            }
+
+            .problem-question {
+                font-size: 26px;
+                line-height: 1.4;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .section-label {
+                font-size: 12px;
+            }
+
+            /* 통계 카드 */
+            .stat-number {
                 font-size: 32px;
             }
 
+            .stat-label {
+                font-size: 15px;
+            }
+
+            /* USP 그리드 */
+            .usp-title {
+                font-size: 18px;
+            }
+
+            .usp-desc {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            /* 솔루션 박스 */
+            .solution-message {
+                font-size: 20px;
+            }
+
+            /* 혜택 섹션 */
+            .benefit-title {
+                font-size: 22px;
+            }
+
+            .benefit-desc {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            /* 품질 섹션 */
+            .quality-title {
+                font-size: 26px;
+            }
+
+            .quality-desc {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            /* 시나리오 카드 */
+            .scenario-title {
+                font-size: 18px;
+            }
+
+            .scenario-desc {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            /* 플로우 섹션 */
+            .flow-number {
+                font-size: 14px;
+            }
+
+            .flow-title {
+                font-size: 16px;
+            }
+
+            .flow-desc {
+                font-size: 14px;
+            }
+
+            /* 후기 섹션 */
+            .review-name {
+                font-size: 15px;
+            }
+
+            .review-text {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .social-number {
+                font-size: 28px;
+            }
+
+            .social-label {
+                font-size: 14px;
+            }
+
+            /* 팀/ESG 섹션 */
+            .team-story {
+                font-size: 16px;
+                line-height: 1.7;
+            }
+
+            .esg-title {
+                font-size: 24px;
+            }
+
+            .esg-desc {
+                font-size: 16px;
+            }
+
+            /* 타임라인 */
+            .timeline-date {
+                font-size: 15px;
+            }
+
+            .timeline-title {
+                font-size: 16px;
+            }
+
+            /* 위험/FAQ */
+            .risk-q,
+            .faq-q {
+                font-size: 16px;
+            }
+
+            .risk-a,
+            .faq-a {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            /* CTA 섹션 */
+            .cta-title {
+                font-size: 28px;
+            }
+
+            .cta-subtitle {
+                font-size: 16px;
+            }
+
+            /* ===== 레이아웃 변경 ===== */
             .hero-videos {
                 grid-template-columns: 1fr;
                 max-width: 280px;
@@ -1018,14 +1205,6 @@
 
             .hero-video {
                 aspect-ratio: 9/14;
-            }
-
-            .problem-story {
-                font-size: 20px;
-            }
-
-            .problem-question {
-                font-size: 24px;
             }
 
             .stats-row,
@@ -1045,35 +1224,119 @@
                 direction: ltr;
             }
 
+            /* ===== 비교 테이블 (가로 스크롤 + sticky) ===== */
+            .comparison {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
             .comparison-table {
-                font-size: 12px;
+                min-width: 580px;
+                font-size: 14px;
             }
 
             .comparison-table th,
             .comparison-table td {
-                padding: 12px 8px;
+                padding: 14px 12px;
+                white-space: nowrap;
+            }
+
+            .comparison-table th:first-child,
+            .comparison-table td:first-child {
+                position: sticky;
+                left: 0;
+                background: var(--navy-dark);
+                z-index: 1;
+                min-width: 100px;
+            }
+
+            .comparison-table .highlight td:first-child {
+                background: rgba(220, 20, 60, 0.15);
             }
 
             .scenario-grid,
             .review-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .flow-steps {
                 grid-template-columns: 1fr;
+                gap: 32px;
             }
 
             .flow-step::after {
                 content: '↓';
                 right: 50%;
                 top: auto;
-                bottom: -14px;
+                bottom: -20px;
                 transform: translateX(50%);
+                font-size: 18px;
             }
 
+            .flow-step:last-child::after {
+                display: none;
+            }
+
+            /* ===== 리워드 카드 개선 ===== */
             .lineup-compare,
             .reward-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .lineup-box {
+                padding: 28px 24px;
+            }
+
+            .lineup-name {
+                font-size: 13px;
+            }
+
+            .lineup-price {
+                font-size: 22px;
+            }
+
+            .lineup-desc {
+                font-size: 14px;
+            }
+
+            .reward-card {
+                padding: 28px 24px;
+            }
+
+            .reward-name {
+                font-size: 14px;
+            }
+
+            .reward-title {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+
+            .reward-original {
+                font-size: 14px;
+            }
+
+            .reward-price {
+                font-size: 26px;
+            }
+
+            .reward-label {
+                font-size: 13px;
+            }
+
+            .reward-limited {
+                font-size: 14px;
+            }
+
+            .reward-badge {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+
+            .reward-section-title {
+                font-size: 13px;
             }
 
             .timeline-item,
@@ -1082,8 +1345,92 @@
                 gap: 8px;
             }
 
+            /* ===== UX 개선: 터치 타겟 ===== */
+            .cta-button {
+                min-height: 52px;
+                padding: 16px 32px;
+                font-size: 16px;
+            }
+
+            /* 후기 카드 개선 */
+            .review-card {
+                padding: 28px 24px;
+            }
+
+            /* 시나리오 카드 개선 */
+            .scenario-card {
+                padding: 28px 24px;
+            }
+
+            /* USP 카드 개선 */
+            .usp-card {
+                padding: 28px 24px;
+            }
+
+            /* 통계 아이템 개선 */
+            .stat-item {
+                padding: 28px 20px;
+            }
+        }
+
+        /* 소형 모바일 (480px 이하) */
+        @media (max-width: 480px) {
+            section {
+                padding: 48px 20px;
+            }
+
+            .hero-title {
+                font-size: 30px;
+            }
+
+            .hero-subtitle {
+                font-size: 16px;
+            }
+
+            .problem-story {
+                font-size: 19px;
+            }
+
+            .problem-question {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .benefit-title {
+                font-size: 20px;
+            }
+
+            .quality-title {
+                font-size: 24px;
+            }
+
             .cta-title {
-                font-size: 26px;
+                font-size: 24px;
+            }
+
+            .reward-price {
+                font-size: 24px;
+            }
+
+            .social-number {
+                font-size: 24px;
+            }
+
+            /* 비교 테이블 추가 조정 */
+            .comparison-table {
+                font-size: 13px;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 10px;
             }
         }
     </style>
