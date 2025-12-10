@@ -30,6 +30,11 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--navy-dark);
@@ -37,6 +42,8 @@
             line-height: 1.7;
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            min-height: 100%;
         }
 
         .container {
@@ -164,6 +171,20 @@
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 32px;
             margin-top: 32px;
+        }
+
+        .hero-image {
+            margin-top: 48px;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         /* ================================
@@ -411,6 +432,115 @@
             color: var(--gray-muted);
         }
 
+        /* 비교 카드 UI (모바일용, 기본 숨김) */
+        .comparison-cards {
+            display: none;
+            margin-top: 32px;
+        }
+
+        .compare-card.main {
+            background: linear-gradient(135deg, rgba(220,20,60,0.12), rgba(220,20,60,0.04));
+            border: 2px solid var(--crimson);
+            border-radius: 12px;
+            padding: 32px 24px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .compare-badge {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background: var(--crimson);
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 4px;
+            letter-spacing: 0.1em;
+        }
+
+        .compare-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--off-white);
+        }
+
+        .compare-summary {
+            color: var(--crimson);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .compare-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .compare-features li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 15px;
+            color: var(--off-white);
+        }
+
+        .compare-features li:last-child {
+            border-bottom: none;
+        }
+
+        .compare-features .label {
+            color: var(--gray-muted);
+        }
+
+        .compare-features .value {
+            font-weight: 500;
+        }
+
+        .compare-features .value.check {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .compare-others {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .compare-card.mini {
+            background: var(--navy-dark);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 16px 12px;
+            text-align: center;
+        }
+
+        .compare-card.mini h4 {
+            font-size: 12px;
+            color: var(--gray-muted);
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+
+        .compare-card.mini .price {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--off-white);
+        }
+
+        .compare-card.mini .verdict {
+            font-size: 11px;
+            color: #777;
+            line-height: 1.4;
+        }
+
         /* ================================
            SECTION 06: QUALITY (첫인상 3초)
            ================================ */
@@ -455,11 +585,18 @@
         .scenario-image {
             aspect-ratio: 4/3;
             background: var(--navy-mid);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gray-muted);
-            font-size: 13px;
+            overflow: hidden;
+        }
+
+        .scenario-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .scenario-card:hover .scenario-image img {
+            transform: scale(1.05);
         }
 
         .scenario-content {
@@ -1049,6 +1186,10 @@
                 font-size: 15px;
             }
 
+            .hero-image {
+                margin-top: 32px;
+            }
+
             /* 문제/솔루션 섹션 */
             .problem-story {
                 font-size: 21px;
@@ -1224,34 +1365,13 @@
                 direction: ltr;
             }
 
-            /* ===== 비교 테이블 (가로 스크롤 + sticky) ===== */
-            .comparison {
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
+            /* ===== 비교: 테이블 숨기고 카드 표시 ===== */
             .comparison-table {
-                min-width: 580px;
-                font-size: 14px;
+                display: none;
             }
 
-            .comparison-table th,
-            .comparison-table td {
-                padding: 14px 12px;
-                white-space: nowrap;
-            }
-
-            .comparison-table th:first-child,
-            .comparison-table td:first-child {
-                position: sticky;
-                left: 0;
-                background: var(--navy-dark);
-                z-index: 1;
-                min-width: 100px;
-            }
-
-            .comparison-table .highlight td:first-child {
-                background: rgba(220, 20, 60, 0.15);
+            .comparison-cards {
+                display: block;
             }
 
             .scenario-grid,
@@ -1423,14 +1543,38 @@
                 font-size: 24px;
             }
 
-            /* 비교 테이블 추가 조정 */
-            .comparison-table {
-                font-size: 13px;
+            /* 비교 카드 추가 조정 */
+            .compare-card.main {
+                padding: 28px 20px;
             }
 
-            .comparison-table th,
-            .comparison-table td {
-                padding: 12px 10px;
+            .compare-name {
+                font-size: 20px;
+            }
+
+            .compare-features li {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+
+            .compare-others {
+                gap: 8px;
+            }
+
+            .compare-card.mini {
+                padding: 12px 8px;
+            }
+
+            .compare-card.mini h4 {
+                font-size: 11px;
+            }
+
+            .compare-card.mini .price {
+                font-size: 14px;
+            }
+
+            .compare-card.mini .verdict {
+                font-size: 10px;
             }
         }
     </style>
@@ -1457,7 +1601,8 @@
                 캠퍼스 기반 프리미엄 정장 렌탈 서비스.
             </p>
 
-            <!-- 히어로 영상 -->
+            <!--
+            히어로 영상
             <div class="hero-videos">
                 <div class="hero-video">
                     <video autoplay muted loop playsinline>
@@ -1470,10 +1615,15 @@
                     </video>
                 </div>
             </div>
+        -->
             
             <p class="hero-tagline">
                 SUIT TODAY FOR YOU, SUIT TODAY FOR EARTH.
             </p>
+
+            <div class="hero-image">
+                <img src="hero.png" alt="오늘만정장 히어로 이미지" loading="lazy">
+            </div>
         </div>
     </section>
 
@@ -1680,6 +1830,43 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- 모바일용 카드 UI -->
+            <div class="comparison-cards">
+                <!-- 오늘만정장 (메인 카드) -->
+                <div class="compare-card main">
+                    <span class="compare-badge">BEST</span>
+                    <h3 class="compare-name">오늘만정장</h3>
+                    <p class="compare-summary">최적의 밸런스</p>
+                    <ul class="compare-features">
+                        <li><span class="label">가격</span><span class="value">3.3만원~</span></li>
+                        <li><span class="label">캠퍼스 픽업</span><span class="value check">✓</span></li>
+                        <li><span class="label">AI 사이즈 추천</span><span class="value check">✓</span></li>
+                        <li><span class="label">세탁</span><span class="value">불필요</span></li>
+                        <li><span class="label">대기 시간</span><span class="value">3일 내</span></li>
+                        <li><span class="label">프리미엄 라인</span><span class="value check">✓</span></li>
+                    </ul>
+                </div>
+
+                <!-- 경쟁사 카드들 -->
+                <div class="compare-others">
+                    <div class="compare-card mini">
+                        <h4>신품 구매</h4>
+                        <p class="price">30만원+</p>
+                        <p class="verdict">비용 부담</p>
+                    </div>
+                    <div class="compare-card mini">
+                        <h4>열린옷장</h4>
+                        <p class="price">무료</p>
+                        <p class="verdict">접근성 낮음<br>(2주+ 대기)</p>
+                    </div>
+                    <div class="compare-card mini">
+                        <h4>마이스윗인터뷰</h4>
+                        <p class="price">4.5만원~</p>
+                        <p class="verdict">방문 필요</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1715,7 +1902,7 @@
             <div class="scenario-grid">
                 <div class="scenario-card">
                     <div class="scenario-image">
-                        [면접 이미지]
+                        <img src="면접이미지.png" alt="취업 면접을 위한 정장 렌탈" loading="lazy">
                     </div>
                     <div class="scenario-content">
                         <p class="scenario-tag">INTERVIEW</p>
@@ -1723,10 +1910,10 @@
                         <p class="scenario-desc">첫인상이 당락을 좌우하는 면접. 30만원 정장 구매 대신, 프리미엄 정장으로 자신감을 입으세요.</p>
                     </div>
                 </div>
-                
+
                 <div class="scenario-card">
                     <div class="scenario-image">
-                        [졸업사진 이미지]
+                        <img src="졸업사진이미지.png" alt="졸업사진 촬영을 위한 정장 렌탈" loading="lazy">
                     </div>
                     <div class="scenario-content">
                         <p class="scenario-tag">GRADUATION</p>
@@ -1734,10 +1921,10 @@
                         <p class="scenario-desc">평생 남을 졸업사진. 핏 좋은 정장으로 인생샷 남기고, 다음 날 바로 반납하세요.</p>
                     </div>
                 </div>
-                
+
                 <div class="scenario-card">
                     <div class="scenario-image">
-                        [결혼식 이미지]
+                        <img src="결혼식하객.png" alt="결혼식 하객을 위한 정장 렌탈" loading="lazy">
                     </div>
                     <div class="scenario-content">
                         <p class="scenario-tag">WEDDING</p>
@@ -2087,7 +2274,7 @@
             <div class="faq-list">
                 <div class="faq-item">
                     <p class="faq-q">대여 기간은 얼마인가요?</p>
-                    <p class="faq-a">기본 3박 4일입니다. 연장이 필요하시면 1일 10,000원에 추가 가능합니다.</p>
+                    <p class="faq-a">기본 4박 5일입니다. 연장이 필요하시면 1일 10,000원에 추가 가능합니다.</p>
                 </div>
                 
                 <div class="faq-item">
