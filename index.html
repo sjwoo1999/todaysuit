@@ -393,7 +393,7 @@
         .comparison-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 32px;
+            margin-top: 48px;
         }
 
         .comparison-table th,
@@ -430,6 +430,43 @@
 
         .cross {
             color: var(--gray-muted);
+        }
+
+        /* 오늘만정장 열 강조 (OUR SERVICE) */
+        .comparison-table th:last-child,
+        .comparison-table td:last-child {
+            background: rgba(220, 20, 60, 0.08);
+            border-left: 2px solid var(--crimson);
+            border-right: 2px solid var(--crimson);
+        }
+
+        .comparison-table th:last-child {
+            position: relative;
+            color: var(--crimson);
+            font-weight: 600;
+            border-top: 2px solid var(--crimson);
+        }
+
+        .comparison-table thead th:last-child::before {
+            content: 'OUR SERVICE';
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            letter-spacing: 0.1em;
+            background: var(--crimson);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 2px;
+        }
+
+        .comparison-table tbody tr:first-child td:last-child {
+            border-top: 2px solid var(--crimson);
+        }
+
+        .comparison-table tbody tr:last-child td:last-child {
+            border-bottom: 2px solid var(--crimson);
         }
 
         /* 비교 카드 UI (모바일용, 기본 숨김) */
@@ -894,8 +931,13 @@
         }
 
         .reward-unit {
+            display: inline-block;
             font-size: 12px;
-            color: var(--gray-muted);
+            font-weight: 500;
+            color: var(--crimson);
+            border: 1px solid var(--crimson);
+            padding: 4px 10px;
+            border-radius: 4px;
             margin-bottom: 4px;
         }
 
@@ -1866,7 +1908,7 @@
                     <h3 class="compare-name">오늘만정장</h3>
                     <p class="compare-summary">최적의 밸런스</p>
                     <ul class="compare-features">
-                        <li><span class="label">가격</span><span class="value">3.3만원~</span></li>
+                        <li><span class="label">가격</span><span class="value">2.9만원~</span></li>
                         <li><span class="label">캠퍼스 픽업</span><span class="value check">✓</span></li>
                         <li><span class="label">AI 사이즈 추천</span><span class="value check">✓</span></li>
                         <li><span class="label">세탁</span><span class="value">불필요</span></li>
@@ -2088,11 +2130,10 @@
                 <div class="reward-card">
                     <p class="reward-name">3회권
                         : 프리미엄</p>
-                    <p class="reward-title">3회권
-                        : 프리미엄</p>
+                    <p class="reward-title">3회 이용</p>
                     <p class="reward-original">정가 225,000원</p>
                     <p class="reward-price">179,000원</p>
-                    <p class="reward-unit">(1회 = 4박5일)</p>
+                    <p class="reward-unit">1회 = 4박5일</p>
                     <p class="reward-label">Founder's Price</p>
                     <p class="reward-limited">30명 한정</p>
                 </div>
@@ -2106,7 +2147,7 @@
                         + 무료 배송</p>
                     <p class="reward-original">정가 375,000원</p>
                     <p class="reward-price">229,000원</p>
-                    <p class="reward-unit">(1회 = 4박5일)</p>
+                    <p class="reward-unit">1회 = 4박5일</p>
                     <p class="reward-label">Founder's Price</p>
                     <p class="reward-limited">30명 한정</p>
                 </div>
@@ -2121,7 +2162,7 @@
                         + 퍼스널 컬러 진단</p>
                     <p class="reward-original">정가 750,000원</p>
                     <p class="reward-price">329,000원</p>
-                    <p class="reward-unit">(1회 = 4박5일)</p>
+                    <p class="reward-unit">1회 = 4박5일</p>
                     <p class="reward-label">Founder's Price</p>
                     <p class="reward-limited">20명 한정</p>
                 </div>
@@ -2136,7 +2177,7 @@
                     <p class="reward-title">3회 이용</p>
                     <p class="reward-original">정가 135,000원</p>
                     <p class="reward-price">109,000원</p>
-                    <p class="reward-unit">(1회 = 4박5일)</p>
+                    <p class="reward-unit">1회 = 4박5일</p>
                     <p class="reward-label">Founder's Price</p>
                     <p class="reward-limited">50명 한정</p>
                 </div>
@@ -2148,7 +2189,7 @@
                         + 무료 배송</p>
                     <p class="reward-original">정가 225,000원</p>
                     <p class="reward-price">169,000원</p>
-                    <p class="reward-unit">(1회 = 4박5일)</p>
+                    <p class="reward-unit">1회 = 4박5일</p>
                     <p class="reward-label">Founder's Price</p>
                     <div class="reward-benefits">
                         <span class="check">✓</span> 무료배송
@@ -2165,7 +2206,7 @@
                         + 퍼스널 컬러 진단</p>
                     <p class="reward-original">정가 450,000원</p>
                     <p class="reward-price">289,000원</p>
-                    <p class="reward-unit">(1회 = 4박5일)</p>
+                    <p class="reward-unit">1회 = 4박5일</p>
                     <p class="reward-label">Founder's Price</p>
                     <div class="reward-benefits">
                         <span class="check">✓</span> 무료배송 · <span class="check">✓</span> 퍼스널컬러 진단
