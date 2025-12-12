@@ -229,6 +229,109 @@
             height: auto;
         }
 
+        /* THE BEGINNING - 타이포그래피 중심 레이아웃 */
+        .beginning-hero {
+            text-align: center;
+            padding: 48px 0;
+        }
+
+        .beginning-sub {
+            font-size: 13px;
+            color: white;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        /* 대비 컨테이너 */
+        .beginning-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+            margin: 32px 0;
+        }
+
+        /* 가격 박스 공통 */
+        .beginning-price-box {
+            text-align: center;
+            padding: 24px 32px;
+            min-width: 140px;
+        }
+
+        /* 구매가 (왼쪽 - 높은 가격) */
+        .beginning-price-box.purchase {
+            opacity: 0.7;
+        }
+
+        .beginning-price-box.purchase .price-label {
+            font-size: 13px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .beginning-price-box.purchase .price-value {
+            font-size: 24px;
+            font-weight: 500;
+            color: white;
+            text-decoration: line-through;
+            text-decoration-color: var(--crimson);
+            text-decoration-thickness: 3px;
+        }
+
+        /* VS 구분자 */
+        .beginning-vs {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray-muted);
+            letter-spacing: 0.1em;
+        }
+
+        /* 잔고 (오른쪽 - 강조) */
+        .beginning-price-box.balance .price-label {
+            font-size: 13px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .beginning-price-box.balance .price-value {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--crimson);
+        }
+
+        /* 차액 표시 */
+        .beginning-gap {
+            font-size: 15px;
+            color: white;
+            margin-top: 16px;
+            margin-bottom: 32px;
+        }
+
+        .beginning-gap strong {
+            color: var(--crimson);
+            font-weight: 600;
+        }
+
+        .beginning-divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(255,255,255,0.3);
+            margin: 0 auto 40px;
+        }
+
+        .beginning-pain {
+            font-size: 18px;
+            line-height: 2.2;
+            color: var(--off-white);
+            margin-bottom: 48px;
+        }
+
+        .beginning-question {
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+        }
+
         .stats-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1055,6 +1158,25 @@
             font-weight: 600;
         }
 
+        /* 프리미엄 카드 가치 문구 */
+        .premium-value {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            color: #FFD700;
+            font-weight: 600;
+        }
+
+        /* 프리미엄 카드 이미지 */
+        .premium-card-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 16px;
+        }
+
         .premium-cta {
             display: inline-block;
             border: 2px solid var(--crimson);
@@ -1386,6 +1508,31 @@
             .problem-question {
                 font-size: 26px;
                 line-height: 1.4;
+            }
+
+            .beginning-comparison {
+                gap: 20px;
+            }
+
+            .beginning-price-box {
+                padding: 16px 20px;
+                min-width: 110px;
+            }
+
+            .beginning-price-box.purchase .price-value {
+                font-size: 20px;
+            }
+
+            .beginning-price-box.balance .price-value {
+                font-size: 32px;
+            }
+
+            .beginning-pain {
+                font-size: 16px;
+            }
+
+            .beginning-question {
+                font-size: 20px;
             }
 
             .section-title {
@@ -1726,6 +1873,32 @@
                 font-size: 24px;
             }
 
+            .beginning-comparison {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .beginning-vs {
+                transform: rotate(90deg);
+            }
+
+            .beginning-price-box.purchase .price-value {
+                font-size: 18px;
+            }
+
+            .beginning-price-box.balance .price-value {
+                font-size: 28px;
+            }
+
+            .beginning-pain {
+                font-size: 15px;
+                line-height: 2;
+            }
+
+            .beginning-question {
+                font-size: 18px;
+            }
+
             .section-title {
                 font-size: 24px;
             }
@@ -1863,41 +2036,36 @@
     <section class="problem">
         <div class="container">
             <p class="section-label">THE BEGINNING</p>
-            
-            <p class="problem-story">
-                통장 잔고 <span>47,000원.</span><br>
-                면접을 앞둔 팀원의 통장이었습니다.
-            </p>
+            <h2 class="section-title">혹시, 이런 적 있으신가요?</h2>
 
-            <!-- 문제 상황 GIF: 돈 세는 장면 = 비용 부담 -->
-            <div class="problem-visual">
-                <img src="Balance.png" alt="ATM 화면에 표시된 47,000원 잔고" loading="lazy">
-            </div>
-            
-            <p class="problem-question">
-                딱 한 번 입을 정장,<br>
-                30만원이 정말 합리적인가요?
-            </p>
-            
-            <p class="section-subtitle">
-                면접, 결혼식, 졸업사진...<br>
-                중요한 날은 다가오는데 통장 잔고는 부족하죠.<br>
-                비싼 가격, 귀찮은 세탁, 유행 타는 디자인까지.
-            </p>
-            
-            <div class="stats-row">
-                <div class="stat-item">
-                    <p class="stat-number">300,000+</p>
-                    <p class="stat-label">정장 구매 비용</p>
+            <div class="beginning-hero">
+                <p class="beginning-sub">면접 D-3</p>
+
+                <div class="beginning-comparison">
+                    <div class="beginning-price-box purchase">
+                        <p class="price-label">구매하면</p>
+                        <p class="price-value">300,000원</p>
+                    </div>
+
+                    <span class="beginning-vs">VS</span>
+
+                    <div class="beginning-price-box balance">
+                        <p class="price-label">통장 잔고</p>
+                        <p class="price-value">47,000원</p>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <p class="stat-number">10,000</p>
-                    <p class="stat-label">드라이클리닝 1회</p>
-                </div>
-                <div class="stat-item">
-                    <p class="stat-number">99%</p>
-                    <p class="stat-label">옷장 방치율</p>
-                </div>
+
+                <p class="beginning-gap">차액: <strong>253,000원</strong></p>
+
+                <div class="beginning-divider"></div>
+
+                <p class="beginning-pain">
+                    부모님께 손 벌리기엔 민망하고,<br>
+                    카드 긁기엔 이자가 무섭고,<br>
+                    중고나라엔 내 사이즈가 없고.
+                </p>
+
+                <p class="beginning-question">사지 않으면, 방법이 없는 걸까요?</p>
             </div>
         </div>
     </section>
@@ -2143,7 +2311,7 @@
 
                 <div class="scenario-card">
                     <div class="scenario-image">
-                        <img src="결혼식하객.png" alt="결혼식 하객을 위한 정장 렌탈" loading="lazy">
+                        <img src="Wedding.png" alt="결혼식 하객을 위한 정장 렌탈" loading="lazy">
                     </div>
                     <div class="scenario-content">
                         <p class="scenario-tag">WEDDING</p>
@@ -2261,6 +2429,37 @@
     </section>
 
     <!-- ================================
+         SECTION: OUR STORY (팀 스토리)
+         ================================ -->
+    <section class="team">
+        <div class="container">
+            <p class="section-label">OUR STORY</p>
+
+            <div class="team-story">
+                <p class="team-story-text">
+                    통장 잔고 <span>47,000원.</span><br>
+                    면접 앞둔 팀원의 통장이었습니다.<br><br>
+                    우리는 그날 결심했습니다.
+                </p>
+
+                <p class="team-philosophy">
+                    "사회로 나가는 첫걸음이<br>
+                    빚이나 짐이 되어서는 안 된다."
+                </p>
+            </div>
+
+            <div class="team-info">
+                <p class="team-name">TEAM SUIT TODAY</p>
+                <p class="team-desc">
+                    전원 취업 준비 경험자.<br>
+                    그래서 압니다. 그 막막함을.<br>
+                    그래서 만들었습니다. 이 서비스를.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
          SECTION: PREMIUM BENEFITS (프리미엄 혜택 - 업셀 유도)
          ================================ -->
     <section id="premium" class="premium-benefits">
@@ -2274,8 +2473,8 @@
             <div class="premium-grid">
                 <!-- 카드 1: 1:1 온라인 스타일링 -->
                 <div class="premium-card">
-                    <span class="premium-badge">R4, R6 전용</span>
-                    <span class="premium-icon">👔</span>
+                    <span class="premium-badge">5회·10회 프리미엄 포함</span>
+                    <img src="Styling.png" alt="1:1 온라인 스타일링" class="premium-card-image">
                     <h3>1:1 온라인 스타일링</h3>
                     <p>체형, TPO, 개인 취향을 고려한 맞춤 스타일링 상담. 30분 온라인 상담으로 완벽한 코디를 완성하세요.</p>
                     <ul>
@@ -2283,12 +2482,13 @@
                         <li>TPO별 스타일링 가이드</li>
                         <li>코디 아이템 제안</li>
                     </ul>
+                    <p class="premium-value">정가 50,000원 상당</p>
                 </div>
 
                 <!-- 카드 2: 퍼스널 컬러 진단 -->
                 <div class="premium-card">
-                    <span class="premium-badge">R5, R6 전용</span>
-                    <span class="premium-icon">🎨</span>
+                    <span class="premium-badge">10회권 전용</span>
+                    <img src="PersonalColor.png" alt="퍼스널 컬러 진단" class="premium-card-image">
                     <h3>퍼스널 컬러 진단</h3>
                     <p>피부톤에 맞는 정장 컬러를 AI가 분석합니다. 웜톤? 쿨톤? 당신을 가장 빛나게 할 컬러를 추천해드립니다.</p>
                     <ul>
@@ -2296,6 +2496,7 @@
                         <li>시즌 컬러 타입 진단</li>
                         <li>추천 정장 컬러 가이드</li>
                     </ul>
+                    <p class="premium-value">정가 30,000원 상당</p>
                 </div>
             </div>
 
@@ -2442,37 +2643,6 @@
                 지구를 위한 가장 멋진 선택이 됩니다.<br>
                 오늘만 정장과 함께 지속 가능한 내일을 입으세요.
             </p>
-        </div>
-    </section>
-
-    <!-- ================================
-         SECTION 12: TEAM (제작진 소개 - 9단계)
-         ================================ -->
-    <section class="team">
-        <div class="container">
-            <p class="section-label">OUR STORY</p>
-            
-            <div class="team-story">
-                <p class="team-story-text">
-                    통장 잔고 <span>47,000원.</span><br>
-                    면접 앞둔 팀원의 통장이었습니다.<br><br>
-                    우리는 그날 결심했습니다.
-                </p>
-                
-                <p class="team-philosophy">
-                    "사회로 나가는 첫걸음이<br>
-                    빚이나 짐이 되어서는 안 된다."
-                </p>
-            </div>
-            
-            <div class="team-info">
-                <p class="team-name">TEAM SUIT TODAY</p>
-                <p class="team-desc">
-                    전원 취업 준비 경험자.<br>
-                    그래서 압니다. 그 막막함을.<br>
-                    그래서 만들었습니다. 이 서비스를.
-                </p>
-            </div>
         </div>
     </section>
 
